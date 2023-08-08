@@ -1,0 +1,15 @@
+d:\GitHub\blockchain\blockchainDemo\bin\Debug\net6.0\blockchainDemo.exe
+d:\GitHub\blockchain\blockchainDemo\bin\Debug\net6.0\blockchainDemo.deps.json
+d:\GitHub\blockchain\blockchainDemo\bin\Debug\net6.0\blockchainDemo.runtimeconfig.json
+d:\GitHub\blockchain\blockchainDemo\bin\Debug\net6.0\blockchainDemo.dll
+d:\GitHub\blockchain\blockchainDemo\bin\Debug\net6.0\blockchainDemo.pdb
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.csproj.AssemblyReference.cache
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.GeneratedMSBuildEditorConfig.editorconfig
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.AssemblyInfoInputs.cache
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.AssemblyInfo.cs
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.csproj.CoreCompileInputs.cache
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.dll
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\refint\blockchainDemo.dll
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.pdb
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\blockchainDemo.genruntimeconfig.cache
+d:\GitHub\blockchain\blockchainDemo\obj\Debug\net6.0\ref\blockchainDemo.dll
