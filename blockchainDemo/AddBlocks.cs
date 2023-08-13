@@ -38,8 +38,50 @@ public class AddBlocks
 
         var sha = SHA256.Create();
 
+        int nonce = 0;
+
         string info = id.ToString() + firstName + amount.ToString() + previousBlockHash;
-        string infoHash = Convert.ToBase64String(sha.ComputeHash(Encoding.Unicode.GetBytes(info)));
+        string infoHash = "";
+
+        bool flagCorrect = false;
+
+        if(id == 0){
+            infoHash = Convert.ToBase64String(sha.ComputeHash(Encoding.Unicode.GetBytes(info + nonce.ToString())));
+        }
+        else{
+
+            Task task = new Task(() => {
+                
+
+                    while(!flagCorrect){
+                        infoHash = Convert.ToBase64String(sha.ComputeHash(Encoding.Unicode.GetBytes(info + nonce.ToString())));
+
+                        if(infoHash.Substring(0, 4) == "0000"){
+                            flagCorrect = true;
+                        }
+                        else{
+                            nonce++;
+                        }
+                    } 
+            });
+
+            task.Start();
+
+
+            int timer = 0;
+            Console.WriteLine("\nLoading...\n");
+            while(!flagCorrect){
+
+                Thread.Sleep(1000);
+
+                Console.Write("."); 
+
+                timer += 1;
+            }
+            
+            Console.Write("{0} S", timer);
+            Console.WriteLine("\n\n");
+        }
 
         return infoHash;
     }
