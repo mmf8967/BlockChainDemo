@@ -9,8 +9,19 @@ List<AddBlocks> addBlocks = new List<AddBlocks>();
 
 AddBlocks oAddBlock = new AddBlocks();
 
+
+List<MineBlock> mineBlocks = new List<MineBlock>();
+
 //Genius Block
-addBlocks.Add(new AddBlocks(0, "Genius", 0, "0"));
+//addBlocks.Add(new AddBlocks(0, "Genius", 0, "0"));
+mineBlocks.Add(new MineBlock(null, "0"));
+
+
+List<Transaction> pendingTransaction = new List<Transaction>();
+
+pendingTransaction.Add(new Transaction("Ali", "Zah", 100));
+pendingTransaction.Add(new Transaction("Alex", "Farhad", 10));
+pendingTransaction.Add(new Transaction("Ali", "Alex", 50));
 
 do{
 
@@ -19,6 +30,8 @@ do{
     Console.WriteLine("a- Add a blocks");
     Console.WriteLine("c- Check blocks");
     Console.WriteLine("m- Modify a block");
+    Console.WriteLine("mi- Mine a block");
+    Console.WriteLine("b- Get balance");
     Console.WriteLine("q- Quit"); 
 
     userInput = Console.ReadLine();
@@ -28,7 +41,7 @@ do{
         case "ls":
 
             var option = new JsonSerializerOptions { WriteIndented = true};
-            foreach(AddBlocks block in addBlocks){
+            foreach(MineBlock block in mineBlocks){
                 Console.WriteLine(JsonSerializer.Serialize(block, option));
             }
 
@@ -113,6 +126,38 @@ do{
                 break;
             }
 
+            break;
+        case "mi":
+                string pbh = mineBlocks[mineBlocks.Count - 1].blockHash;
+                mineBlocks.Add(new MineBlock(pendingTransaction, pbh));
+
+                List<Transaction> reward = new List<Transaction>();
+                reward.Add(new Transaction("", "Mostafa", 50));
+                pendingTransaction = reward;
+
+                Console.WriteLine("\n");
+            break;
+        case "b":
+                Console.WriteLine("Please enter the wallet address:");
+                string wallet = Console.ReadLine();
+
+                int balance = 0;
+
+                foreach(MineBlock block in mineBlocks){
+                    if(mineBlocks.IndexOf(block) != 0){
+                        foreach(var transaction in block.transactions){
+                            if(transaction.fromAddress == wallet){
+                                balance -= transaction.amount;
+                            }
+
+                            if(transaction.toAddress == wallet){
+                                balance += transaction.amount;
+                            }
+                        }
+                    }
+                }
+
+                Console.WriteLine("Balance is: {0}", balance);
             break;
         case "q":
             flagExit = true;
